@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BootcampWebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220623115155_Init")]
+    [Migration("20220623123057_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,26 @@ namespace BootcampWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bootcamps");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2022, 6, 23, 12, 30, 57, 621, DateTimeKind.Utc).AddTicks(3766),
+                            Name = "Arvato1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2022, 6, 23, 12, 30, 57, 621, DateTimeKind.Utc).AddTicks(3769),
+                            Name = "Arvato2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2022, 6, 23, 12, 30, 57, 621, DateTimeKind.Utc).AddTicks(3770),
+                            Name = "Arvato3"
+                        });
                 });
 
             modelBuilder.Entity("BootcampWebApi.Entities.User", b =>
@@ -67,6 +87,29 @@ namespace BootcampWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BootcampId = 0,
+                            Name = "Ahmet",
+                            Status = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BootcampId = 0,
+                            Name = "Mehmet",
+                            Status = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BootcampId = 0,
+                            Name = "Enes",
+                            Status = false
+                        });
                 });
 #pragma warning restore 612, 618
         }
