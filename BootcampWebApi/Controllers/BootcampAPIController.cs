@@ -15,17 +15,17 @@ namespace BootcampWebApi.Controllers
         {
             _context = context;
         }
-
+        //Action we use to add user
         [HttpPost]
         [Route("[action]")]
-        public IActionResult UserAdd([FromBody] User user) // Post ve Update işlemlerine neden FromBody yaptık?
+        public IActionResult UserAdd([FromBody] User user) 
         {
             var createdUser = _context.Users.Add(user);
             _context.SaveChanges();
             return Ok(user);
 
         }
-
+        //Action we use to get all bootcamps
         [HttpGet]
         [Route("[action]")]
         public IActionResult GetAllBootcamps()
@@ -33,7 +33,7 @@ namespace BootcampWebApi.Controllers
             var bootcamps = _context.Bootcamps.ToList();
             return Ok(bootcamps);
         }
-
+        //Action we use to get specific bootcamp with id 
         [HttpGet]
         [Route("[action]/{id}")]
         public IActionResult GetBootcampById(int id)
@@ -41,10 +41,10 @@ namespace BootcampWebApi.Controllers
             var bootcamp = _context.Bootcamps.Find(id);
             return Ok(bootcamp);
         }
-
+        //Action we use to register for bootcamp
         [HttpPost]
         [Route("[action]/{userId}/{bootcampId}")]
-        public IActionResult BootcampJoin(int userId, int bootcampId) // Post ve Update işlemlerine neden FromBody yaptık?
+        public IActionResult BootcampJoin(int userId, int bootcampId) 
         {
             var user = _context.Users.Find(userId);
             user.BootcampId = bootcampId;

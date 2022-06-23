@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "ProductApi": {
+    "BootcampWebApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -16,17 +16,17 @@ namespace BootcampWebApi.Controllers
             _context = context;
         }
 
-
+        //Action we use to add bootcamp
         [HttpPost]
         [Route("[action]")]
-        public IActionResult BootcampAdd([FromBody] Bootcamp bootcamp) // Post ve Update işlemlerine neden FromBody yaptık?
+        public IActionResult BootcampAdd([FromBody] Bootcamp bootcamp) 
         {
             var createdBootcamp = _context.Bootcamps.Add(bootcamp);
             _context.SaveChanges();
             return Ok(bootcamp);
 
         }
-
+        //Action we use to delete bootcamp
         [HttpDelete("BootcampDelete")]
         public void BootcampDelete(int id)
         {
@@ -35,7 +35,7 @@ namespace BootcampWebApi.Controllers
             _context.SaveChanges();
         }
 
-
+        //Action we use to to confirm participants
         [HttpPut]
         [Route("[action]/{id}")]
         public IActionResult UserAccept( int id)
@@ -46,7 +46,7 @@ namespace BootcampWebApi.Controllers
             _context.SaveChanges();
             return Ok(user);
         }
-
+        //Action we use to reject participants
         [HttpPut]
         [Route("[action]/{id}")]
         public IActionResult UserDrop( int id)
@@ -57,7 +57,7 @@ namespace BootcampWebApi.Controllers
             _context.SaveChanges();
             return Ok(user);
         }
-
+        //Action we use to delete participants
         [HttpDelete("UserDelete")]
         public void UserDelete(int id)
         {
